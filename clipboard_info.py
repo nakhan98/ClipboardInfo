@@ -66,7 +66,8 @@ class ClearClipboard(object):
 
         # add callbacks
         open_item.connect_object("activate", self.open_app, "Open App")
-        clear_clipboard_item.connect_object("activate", self.clear_clipboard, None)
+        clear_clipboard_item.connect_object("activate", self.clear_clipboard,
+                                            None)
         about_item.connect_object("activate", self.clear_clipboard, None)
         close_item.connect_object("activate", self.close_app, None)
 
