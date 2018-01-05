@@ -88,9 +88,14 @@ class ClearClipboard(object):
         self.clear_clipboard()
 
     def clear_clipboard(self, data=None):
-        subprocess.check_call(self.CLEAR_CLIPBOARD_COMMAND)
-        logging.info("Cleared clipboard")
-        self.send_notification("Cleared clipboard")
+        retval = subprocess.check_call(self.CLEAR_CLIPBOARD_COMMAND)
+        if retval:
+            msg = "Error encountered while clearing clipboard"
+        else:
+            msg = "Cleared clipboard"
+
+        logging.info(msg)
+        self.send_notification(msg)
 
     def about_app(self, data):
         self.message(self.ABOUT_MSG.strip())
