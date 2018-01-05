@@ -46,7 +46,8 @@ class ClearClipboard(object):
         notice.show()
 
     def open_app(self, data):
-        self.message(self.ABOUT_MSG.strip())
+        # TODO
+        self.message("To do..")
 
     def close_app(self, data):
         gtk.main_quit()
@@ -68,7 +69,7 @@ class ClearClipboard(object):
         open_item.connect_object("activate", self.open_app, "Open App")
         clear_clipboard_item.connect_object("activate", self.clear_clipboard,
                                             None)
-        about_item.connect_object("activate", self.clear_clipboard, None)
+        about_item.connect_object("activate", self.about_app, None)
         close_item.connect_object("activate", self.close_app, None)
 
         # Show the menu items
